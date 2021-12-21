@@ -1,9 +1,59 @@
 <html>
     <head>
     </head>
-    <body>
-        <canvas style="touch-action:none;" id='canvas' width='800' height='800' ></canvas>
-
+    <body style="font-family: Arial, Helvetica, sans-serif;">
+        <div style="display:flex; justify-content:space-around; align-items:flex-start;" >
+            <canvas style=" touch-action:none; width:80vw; height:auto;" id='canvas'></canvas>
+            <div style="display:flex; flex-direction:column; justify-content:flex-start; width:15vw;" id="settingsBox">
+                <div style="display:flex; flex-direction:column; border:solid; padding: 4px; margin-top: 4px;"  id="simSettings">
+                    <label for="width">Horizontal Resolution: </label>
+                    <input id="width" type = "number" min="1" max="3000" step=1>
+                    <label for="height">Vertical Resolution: </label>
+                    <input id="height" type = "number" min="1" max="3000" step=1>
+                    <label for="delay">Minimum frame time: </label>
+                    <input id="delay" type = "number" min="1" max="100" step=1>
+                    <label for="inputRadius">Input radius: </label>
+                    <input id="inputRadius" type = "number" min="1" max="1000" step=1>
+                    <label for="inputStrength">Input strength: </label>
+                    <input id="inputStrength" type = "number" min="0.01" max="1000" step="0.01">
+                    <label for="scaleT">Time step: </label>
+                    <input id="scaleT" type = "number" min="0.001" max="1000" step=0.001>
+                    <label for="speed">Time steps per refresh: </label>
+                    <input id="speed" type = "number" min="1" max="5" step=1>
+                    
+                </div>
+                <div style="display:flex; flex-direction:column; border:solid; padding: 4px; margin-top: 4px;" id="equationSettings">
+                    <label for="laplacian">Laplacian: </label>
+                    <input id="laplacian" type = "number" min="0.001" max="1000" step=0.001 >
+                    <label for="identity">Identity: </label>
+                    <input id="identity" type = "number" min="0.001" max="1000" step=0.001>
+                    <label for="derivative">Derivative: </label>
+                    <input id="derivative" type = "number" min="0.001" max="1000" step=0.001>
+                    <label for="cubic">Cubic: </label>
+                    <input id="cubic" type = "number" min="0.001" max="1000" step=0.001>
+                    <label for="noise">Noise: </label>
+                    <input id="noise" type = "number" min="0.001" max="1000" step=0.001>
+                    <label for="boundaryCondition">Boundary Condition: </label>
+                    <input id="boundaryCondition" type = "number" min="0" max="1" step=1>
+                </div>
+                <div style="display:flex; flex-direction:column; border:solid; padding: 4px; margin-top: 4px;"  id="colorSettings">
+                    <label for="colorSensitivity">Color sensitivity: </label>
+                    <input id="colorSensitivity" type = "number" min="0.01" max="1000" step=0.01>
+                    <label for="colorMixRatio">Color mixing: </label>
+                    <input id="colorMixRatio" type = "number" min="0.01" max="1000" step=0.01>
+                    <label for="colorCap">Brightness/Darkness cap: </label>
+                    <input id="colorCap" type = "number" min="0.01" max="1000" step=0.01>
+                    <label for="colorPattern">Color scheme: </label>    
+                    <input id="colorPattern" type = "number" min="0" max="5" step=1>
+                </div>
+            </div>  
+        </div>
+        <h2> About </h2>
+        <p>This is a simulation of the following equation: </p>
+        <img src="equation.png" style="height:5ex;"/>
+        <p>The size of the coefficients can be controlled on the right.</p>
+        <p>The equation is solved via a simple Euler iteration and a discrete Laplacian.</p>
+        <p>This is done using WebGl2 and might therefore crash your browser on the wrong device.</p>
         <script src="script.js"></script>
     </body>
 </html>
